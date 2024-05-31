@@ -5,7 +5,11 @@ describe('first test', () => {
         cy.visit('../../app/index.html')
     })
 
-    it('contains Hello World!', () => {
-        cy.get('p').should('have.text', 'Hello World!')
+    it('displays Jgnnq for Hello with key = 2', () => {
+        cy.dataCy('cipher-key').type('2').should('have.value', '2')
+        cy.get('#cipher-msg').type('Hello').should('have.value', 'Hello')
+        cy.get('#btn-cipher').click()
+
+        cy.get('#result').should('have.text', 'Jgnnq')
     })
 })

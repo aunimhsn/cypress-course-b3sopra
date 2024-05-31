@@ -33,4 +33,12 @@ function caesarCipher(str, key = 1) {
     return result;
 }
 
-console.log(caesarCipher('Hello World!'))
+let btnCipher = document.querySelector('#btn-cipher')
+btnCipher.addEventListener('click', (e) => {
+    e.preventDefault()
+    let paragraphResult = document.querySelector('#result')
+    let cipherKeyValue = parseInt(document.querySelector('#cipher-key').value)
+    let cipherMsgValue = document.querySelector('#cipher-msg').value
+
+    paragraphResult.innerHTML = caesarCipher(cipherMsgValue, cipherKeyValue)
+})
